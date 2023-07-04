@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--cyan: rgb(56, 196, 231);
+	--green: rgb(58, 183, 110);
+	--grass: rgb(182, 244, 143);
+}
+
+p,
+span,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	-webkit-font-smoothing: antialiased !important;
+	text-rendering: optimizeLegibility !important;
+	-webkit-text-size-adjust: 100% !important;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+@keyframes spark-background-pan {
+	from {
+		background-position: 0% center;
+	}
+
+	to {
+		background-position: -200% center;
+	}
+}
+
+@keyframes fluid-spin {
+	0% {
+		transform: translateY(0px);
+		-webkit-transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(-900px) rotate(360deg);
+		-webkit-transform: translateY(-900px) rotate(360deg);
+	}
+}
+
+@keyframes flow {
+	0% {
+		background-position: 0;
+	}
+	100% {
+		background-position: 1280px;
+	}
+}
+
+.spark-text {
+	animation: spark-background-pan 3s linear infinite;
+	background: linear-gradient(
+		to right,
+		var(--cyan),
+		var(--green),
+		var(--grass),
+		var(--cyan)
+	);
+	background-size: 200%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	font-weight: bold;
+}
