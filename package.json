@@ -7,8 +7,7 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"prettier": "npx prettier --write .",
-		"deploy": "tsc && vite build && NODE_DEBUG=gh-pages gh-pages -d dist"
+		"prettier": "npx prettier --write ."
 	},
 	"dependencies": {
 		"@emailjs/browser": "^3.11.0",
@@ -18,7 +17,6 @@
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.9.0",
 		"react-parallax-tilt": "^1.7.148",
-		"gh-pages": "^5.0.0",
 		"react-router-dom": "^6.13.0"
 	},
 	"devDependencies": {
