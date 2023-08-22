@@ -36,7 +36,7 @@ export default function Header({ links }: { links: TLinks }) {
 
 			<Link
 				to={'/'}
-				className='mr-auto text-2xl font-thin text-zinc-800 dark:text-gray-400 '
+				className='mr-auto text-2xl font-extralight text-zinc-800 dark:text-gray-400 '
 			>
 				Voitila Araújo
 			</Link>
