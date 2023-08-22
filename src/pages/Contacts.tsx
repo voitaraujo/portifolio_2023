@@ -85,7 +85,7 @@ export default function Contacts() {
 				</h2>
 				<span className='text-sm leading-6 text-neutral-500 dark:text-neutral-400 sm:text-base'>
 					Quer conheçer um pouco mais do meu <strong>trabalho</strong> ou tomar
-					um <strong>café</strong>? Entre em contato, ou se achar melhor, deixe
+					um <strong>café</strong>? Entre em contato, ou se preferir, deixe
 					seu <strong>email abaixo</strong> que te retorno.
 				</span>
 
