@@ -26,6 +26,7 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* animation for sparkly text */
 @keyframes spark-background-pan {
 	from {
 		background-position: 0% center;
@@ -36,6 +37,17 @@ html {
 	}
 }
 
+/* animation for wave effect on footer */
+@keyframes flow {
+	0% {
+		background-position: 0;
+	}
+	100% {
+		background-position: 1280px;
+	}
+}
+
+/* style for "coffee" like reveal on contacts page */
 @keyframes fluid-spin {
 	0% {
 		transform: translateY(0px);
@@ -44,15 +56,6 @@ html {
 	100% {
 		transform: translateY(-900px) rotate(360deg);
 		-webkit-transform: translateY(-900px) rotate(360deg);
-	}
-}
-
-@keyframes flow {
-	0% {
-		background-position: 0;
-	}
-	100% {
-		background-position: 1280px;
 	}
 }
 
@@ -71,4 +74,37 @@ html {
 	-webkit-text-fill-color: transparent;
 	white-space: nowrap;
 	font-weight: bold;
+}
+
+/* grid + radius fade gradient inspired 99% by dub.sh homepage */
+.grid-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.grid-background:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 80%, #fafafa 100%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.grid-background:after {
+  content: "";
+  background-image: url("/src/assets/svg/grid.svg");
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.8;
+  filter: invert(1);
 }

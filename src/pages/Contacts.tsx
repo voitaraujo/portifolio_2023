@@ -6,6 +6,7 @@ import {
 	FaArrowRight as FaArrowRightIcon,
 	FaGithub as FaGithubIcon,
 	FaLinkedin as FaLinkedinIcon,
+	FaWhatsapp as FaWhatsappIcon,
 } from 'react-icons/fa';
 import { GrSend as GrSendIcon } from 'react-icons/gr';
 import {
@@ -74,19 +75,27 @@ export default function Contacts() {
 
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: -100 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: 100, scale: 0 }}
+			initial={{ opacity: 1, scale: 1 }}
+			exit={{ opacity: 0, scale: 0 }}
 			className='flex w-full flex-1 flex-wrap justify-center gap-16 p-6'
 		>
-			<div className='flex w-full max-w-[400px] flex-col space-y-6 overflow-hidden'>
+			<motion.div
+				initial={{ opacity: 0, y: -200, scale: 0.8 }}
+				animate={{
+					opacity: 1,
+					y: 0,
+					scale: 1,
+					transition: { type: 'tween', ease: 'circOut', duration: 0.6 },
+				}}
+				className='flex w-full max-w-[400px] flex-col space-y-6 overflow-hidden'
+			>
 				<h2 className='text-6xl font-bold tracking-tight text-blue-600 sm:text-7xl'>
 					Vamos conversar
 				</h2>
 				<span className='text-sm leading-6 text-neutral-500 dark:text-neutral-400 sm:text-base'>
 					Quer conheçer um pouco mais do meu <strong>trabalho</strong> ou tomar
-					um <strong>café</strong>? Entre em contato, ou se preferir, deixe
-					seu <strong>email abaixo</strong> que te retorno.
+					um <strong>café</strong>? Entre em contato, ou se preferir, deixe seu{' '}
+					<strong>email abaixo</strong> que te retorno.
 				</span>
 
 				<form
@@ -155,8 +164,17 @@ export default function Contacts() {
 						</button>
 					</div>
 				</form>
-			</div>
-			<div className='flex max-h-[600px] w-full max-w-[400px] flex-col justify-start'>
+			</motion.div>
+			<motion.div
+				initial={{ opacity: 0, x: 300, scale: 0.8 }}
+				animate={{
+					opacity: 1,
+					x: 0,
+					scale: 1,
+					transition: { type: 'tween', ease: 'circOut', duration: 0.6 },
+				}}
+				className='flex max-h-[600px] w-full max-w-[400px] flex-col justify-start'
+			>
 				<img
 					draggable={false}
 					src={ChatImage}
@@ -173,7 +191,7 @@ export default function Contacts() {
 						<MdMailIcon className='text-xl' /> voitilaaraujo@gmail.com
 					</div>
 					<div className='flex items-center justify-start gap-8 text-neutral-400 dark:text-white'>
-						{/* <FaWhatsappIcon className='text-xl' /> +55 (11) 9 9977-2682 */}
+						<FaWhatsappIcon className='text-xl' /> +55 (11) 9 9977-2682
 					</div>
 				</div>
 
@@ -208,7 +226,7 @@ export default function Contacts() {
 						</a>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</motion.div>
 	);
 }

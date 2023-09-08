@@ -51,7 +51,7 @@ export function BentoSlot({
 	return (
 		<BentoSlotContextProvider value={project}>
 			<motion.div
-				initial={{ scale: 0.5, opacity: 0 }}
+				initial={{ scale: 0.6, opacity: 0 }}
 				animate={{
 					scale: 1,
 					opacity: 1,
@@ -93,7 +93,7 @@ const BentoInfo = ({ children }: { children: ReactNode }) => {
 	const smallerScreenClasses =
 		'max-w-[90%] max-h-4/5 bottom-4 right-4 sm:bottom-6 md:bottom-10 pb-8 ';
 	const landscapeSpecificClasses =
-		'sm:w-1/2 sm:h-1/2 sm:right-10 md:min-w-[300px] ';
+		'sm:w-1/2 sm:h-1/2 sm:right-10 md:min-w-[300px]';
 
 	return (
 		<div
@@ -128,7 +128,7 @@ const BentoTitle = () => {
 				rel='noreferrer'
 				href={deployURL ?? undefined}
 				className={`w-fit text-2xl font-medium underline-offset-4 sm:text-4xl ${
-					typeof deployURL === 'undefined'
+					deployURL === null
 						? 'cursor-default text-zinc-600'
 						: 'text-blue-600/70 focus-within:underline hover:underline'
 				}`}

@@ -11,9 +11,9 @@ export default function Footer() {
 				transition: { type: 'keyframes', ease: 'easeInOut', duration: 0.5 },
 			}}
 			initial={{ y: 150, opacity: 0 }}
-			className='relative bottom-0 left-0 z-[1000] h-[129px] w-full overflow-hidden'
+			className='relative bottom-0 mix-blend-exclusion left-0 z-[500] h-[129px] w-full overflow-hidden'
 		>
-			<span className='absolute bottom-4 left-4 z-[999]'>
+			<span className='absolute bottom-4 left-4 z-[99]'>
 				Voitila Araújo © 2023.
 			</span>
 			{[...new Array(4)].map((_, idx) => (

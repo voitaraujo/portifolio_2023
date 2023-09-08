@@ -7,7 +7,7 @@ import {
 	useLocation,
 } from 'react-router-dom';
 
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import PageContainer from './components/Page';
@@ -26,7 +26,7 @@ const pagesToRoutes = [
 function ScrollToTop() {
 	const { pathname } = useLocation();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		window.scrollTo(0, 0);
 	}, [pathname]);
 

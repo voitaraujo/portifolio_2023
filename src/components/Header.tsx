@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import LightModeSwitch from './LightmodeSwitch';
 
@@ -13,7 +13,7 @@ export default function Header({ links }: { links: TLinks }) {
 		setViewWidth(window.innerWidth);
 	}
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		window.addEventListener('resize', updateDeviceWidthClass);
 
 		return () => {

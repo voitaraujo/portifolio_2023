@@ -1,5 +1,5 @@
 import { motion, useAnimate, useInView } from 'framer-motion';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { FaQuestion as FaQuestionIcon } from 'react-icons/fa';
 import Caixa_FULL from '../assets/img/caixa-full.png';
 import Caixa_MASK from '../assets/img/caixa-mask.png';
@@ -17,7 +17,7 @@ export default function StuffBox({
 		margin: '-25% 0px -25% 0px',
 	});
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (isInView) {
 			animateIconsOutsideTheBox();
 		} else {

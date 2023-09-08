@@ -6,9 +6,9 @@ import { BentoGrid, BentoSlot } from '../components/BentoGrid';
 export default function Projects() {
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: -100 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: 100, scale: 0 }}
+		initial={{ opacity: 0, scale: 0.8 }}
+		animate={{ opacity: 1, scale: 1 }}
+		exit={{ opacity: 0, scale: 0 }}
 			className='p-4'
 		>
 			<BentoGrid>

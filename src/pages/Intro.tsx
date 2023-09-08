@@ -1,5 +1,5 @@
 import { motion, useAnimate } from 'framer-motion';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { HiChevronDoubleDown as HiChevronDoubleDownIcon } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { blue } from 'tailwindcss/colors';
@@ -44,7 +44,6 @@ const Subtitle = ({ children }: { children: string }) => {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0, y: 300, transition: { duration: 0.5 } }}
 			transition={{
-				delay: 0,
 				type: 'tween',
 				ease: 'easeInOut',
 				duration: 1,
@@ -59,26 +58,26 @@ const ActionButton = ({ navigateTo }: { navigateTo: string }) => {
 	const [scope, animate] = useAnimate();
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		async function enterAnimation() {
-			await animate(scope.current, { opacity: 1 }, { delay: 0.5 });
-
-			animate(
-				'svg',
-				{
-					y: 10,
-				},
-				{
-					duration: 1,
-					repeatType: 'reverse',
-					repeat: Infinity,
-					type: 'tween',
-				}
-			);
-		}
-
+	useLayoutEffect(() => {
 		enterAnimation();
 	}, []);
+
+	async function enterAnimation() {
+		await animate(scope.current, { opacity: 1 }, { duration: 1 });
+
+		animate(
+			'svg',
+			{
+				y: 10,
+			},
+			{
+				duration: 1,
+				repeatType: 'reverse',
+				repeat: Infinity,
+				type: 'tween',
+			}
+		);
+	}
 
 	const handleClick = async () => {
 		animate(

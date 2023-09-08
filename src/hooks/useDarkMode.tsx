@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 export const useDarkMode = () => {
 	const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
@@ -15,7 +15,7 @@ export const useDarkMode = () => {
 		}
 	});
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		observer.observe(document.documentElement, { attributes: true });
 
 		window
