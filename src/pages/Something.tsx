@@ -5,30 +5,39 @@ import {
 	HiSpeakerphone as HiSpeakerphoneIcon,
 	HiUserGroup as HiUserGroupIcon,
 	HiUsers as HiUsersIcon,
+	HiPuzzle as HiPuzzleIcon,
 } from 'react-icons/hi';
 import Tilt from 'react-parallax-tilt';
 import Balancer from 'react-wrap-balancer';
 import Brazuca_Image from '../assets/svg/brazuca.svg';
 import StuffBox from '../components/StuffBox';
 
+interface GoalsSectionProps {
+	Goals: {
+		icon: ReactNode;
+		title: string;
+		description: string;
+	}[];
+}
+
 const Goals = [
 	{
 		title: 'Palestrar',
 		icon: <HiSpeakerphoneIcon className='h-12 w-12' />,
 		description:
-			'Apesar de ser assustador para muitas pessoas eu adoro a ideia de falar sobre algo que gosto para outros também interessados no assunto. Até o momento só tive essa experiência no meio acadêmico mas adoraria um dia poder me apresentar em uma convenção ou afins para falar com um público!',
+			'Apesar de ser assustador para muitas pessoas eu adoro a ideia de falar sobre algo que gosto para outros também interessados no assunto. Até o momento só tive essa experiência no meio acadêmico mas adoraria um dia poder me apresentar em uma convenção ou afins!',
 	},
 	{
 		title: 'Contribuir',
 		icon: <HiUsersIcon className='h-12 w-12' />,
 		description:
-			'Programadores dependem fortemente do trabalho passado de outros colegas, tendo completa consciência disso gostaria de um dia retribuir amplamente à comunidade, seja na forma de um novo framework, biblioteca ou até mesmo uma nova linguagem de programação.',
+			'Programadores dependem fortemente do trabalho passado de outros colegas, por isso gostaria de um dia retribuir à comunidade, seja na forma de um novo framework, biblioteca ou até mesmo uma nova linguagem de programação.',
 	},
 	{
-		title: 'Contribuir (mais!)',
-		icon: <HiUserGroupIcon className='h-12 w-12' />,
+		title: 'Resolver',
+		icon: <HiPuzzleIcon className='h-12 w-12' />,
 		description:
-			'Eu entendo que mesmo o código mais complexo, robusto e performático não vale a pena ser escrito se não resolver um problema real, por isso tento mesmo em meus projetos pessoais criar softwares que possam ajudar diferentes tipos de públicos com problemas comuns.',
+			'Eu entendo que mesmo o código mais complexo, robusto e performático não vale a pena ser escrito se não resolver um problema real, tendo isso em mente tento mesmo em meus projetos pessoais criar softwares que possam ajudar diferentes tipos de públicos com problemas comuns.',
 	},
 ] satisfies GoalsSectionProps['Goals'];
 
@@ -156,7 +165,7 @@ const StackSection = () => {
 						Nessa categoria opções não faltam, mas minhas escolhas são{' '}
 						<strong>Next</strong>, <strong>Adonis</strong> ou{' '}
 						<strong>Express</strong>, sendo cada solução mais indicada para uma.
-						situação diferente
+						situação diferente.
 					</p>
 				</Tilt>
 
@@ -176,24 +185,18 @@ const StackSection = () => {
 	);
 };
 
-interface GoalsSectionProps {
-	Goals: {
-		icon: ReactNode;
-		title: string;
-		description: string;
-	}[];
-}
 const GoalsSection = ({ Goals }: GoalsSectionProps) => {
 	return (
-		<div className='flex w-full flex-col items-center justify-evenly gap-4 sm:flex-row'>
-			{Goals.map((goal) => (
+		<div className='flex w-full flex-col items-center justify-evenly gap-4 pb-16 sm:flex-row'>
+			{Goals.map((goal, idx) => (
 				<Tilt
+					key={idx}
 					tiltMaxAngleX={2.5}
 					tiltMaxAngleY={5}
 					glareEnable
 					tiltAngleYInitial={0}
 					glareMaxOpacity={0.1}
-					className='flex w-full max-w-[300px] flex-col overflow-hidden rounded-2xl bg-white shadow-md'
+					className='flex h-[450px] w-[300px]  flex-col overflow-hidden rounded-2xl bg-white shadow-md'
 				>
 					<div className='grid-background' />
 					<div className='flex flex-col items-center p-8'>

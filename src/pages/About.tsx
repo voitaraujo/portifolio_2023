@@ -34,17 +34,15 @@ const HeroSection = () => {
 					exit={{ opacity: 0 }}
 					className='mb-8 mt-4 w-full  max-w-[600px] text-2xl font-light leading-10 tracking-widest text-black antialiased dark:text-white'
 				>
-					
-						E acredito que a internet deva ser{' '}
-						<span className='spark-text'>divertida</span> e{' '}
-						<span className='rounded bg-black px-2 py-1 font-Courgette text-xl text-white dark:bg-white dark:text-black'>
-							elegante
-						</span>{' '}
-						sem deixar de ser{' '}
-						<a className='block w-fit text-blue-600 underline underline-offset-8'>
-							funcional()
-						</a>
-					
+					E acredito que a internet deva ser{' '}
+					<span className='spark-text'>divertida</span> e{' '}
+					<span className='rounded bg-black px-2 py-1 font-Courgette text-xl text-white dark:bg-white dark:text-black'>
+						elegante
+					</span>{' '}
+					sem deixar de ser{' '}
+					<a className='block w-fit text-blue-600 underline underline-offset-8'>
+						funcional()
+					</a>
 				</motion.p>
 				<motion.div
 					initial={{ opacity: 0 }}

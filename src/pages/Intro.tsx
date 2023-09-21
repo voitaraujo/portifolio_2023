@@ -1,5 +1,5 @@
 import { motion, useAnimate } from 'framer-motion';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { HiChevronDoubleDown as HiChevronDoubleDownIcon } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { blue } from 'tailwindcss/colors';
@@ -17,19 +17,69 @@ export default function Intro() {
 }
 
 const Title = ({ children }: { children: string }) => {
+	const ref = useRef<HTMLHeadingElement>(null);
+
+	function moveTitleBackground(e: MouseEvent) {
+		let variations: { [K: string]: number } = {};
+		const clientWidth = document.body.clientWidth / 2;
+		const clientHeight = document.body.clientHeight / 2;
+
+		variations.xVariation = clientWidth - e.clientX;
+		variations.yVariation = clientHeight - e.clientY;
+		variations.xVariationPerc = variations.xVariation / clientWidth;
+		variations.yVariationPerc = variations.yVariation / clientHeight;
+
+		ref.current!.animate(
+			{
+				backgroundPosition: `${variations.xVariationPerc * -100}% ${
+					variations.yVariationPerc * 100 * 0.2
+				}%`,
+			},
+			{
+				duration: 1000,
+				fill: 'forwards',
+			}
+		);
+	}
+
+	function resetTitleBackground(_: MouseEvent) {
+		ref.current!.animate(
+			{
+				backgroundPosition: '0% 0%',
+			},
+			{
+				duration: 500,
+				fill: 'forwards',
+			}
+		);
+	}
+
+	useLayoutEffect(() => {
+		document.addEventListener('mousemove', moveTitleBackground);
+		document.addEventListener('mouseleave', resetTitleBackground);
+
+		return () => {
+			document.removeEventListener('mousemove', moveTitleBackground);
+			document.removeEventListener('mouseleave', resetTitleBackground);
+		};
+	}, []);
+
 	return (
 		<motion.h1
+			ref={ref}
 			initial={{ opacity: 0, y: 300 }}
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: 300, transition: { duration: 0.5 } }}
 			style={{
 				backgroundImage: `url(${TextBackground_Img})`,
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: '0% 0%',
 			}}
 			transition={{
 				type: 'spring',
 				duration: 1,
 			}}
-			className='cursor-default bg-black bg-cover bg-clip-text py-4 text-center text-[15vw] font-black leading-[1] tracking-wide !text-transparent text-black dark:bg-white dark:!text-transparent dark:text-white'
+			className='cursor-default bg-black bg-clip-text py-4 text-center text-[15vw] font-black leading-[1] tracking-wide !text-transparent text-black dark:bg-white dark:!text-transparent dark:text-white'
 		>
 			{children && children}
 		</motion.h1>
