@@ -14,7 +14,6 @@ import {
 	MdLocationPin as MdLocationPinIcon,
 	MdMail as MdMailIcon,
 } from 'react-icons/md';
-import ChatImage from '../assets/svg/chat.svg';
 import { Input } from '../components/Input';
 
 interface IContactForm {
@@ -184,7 +183,7 @@ export default function Contacts() {
 			>
 				<img
 					draggable={false}
-					src={ChatImage}
+					src={'/svg/chat.svg'}
 					alt='chat image'
 					className='mb-auto'
 				/>
