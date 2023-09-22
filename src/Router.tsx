@@ -18,9 +18,9 @@ import Intro from './pages/Intro';
 import Projects from './pages/Projects';
 
 const pagesToRoutes = [
-	{ path: '/app/sobre', component: <About /> },
-	{ path: '/app/projetos', component: <Projects /> },
-	{ path: '/app/contatos', component: <Contacts /> },
+	{ path: '/2023/sobre', component: <About /> },
+	{ path: '/2023/projetos', component: <Projects /> },
+	{ path: '/2023/contatos', component: <Contacts /> },
 ];
 
 function ScrollToTop() {
@@ -60,7 +60,7 @@ function AnimatedRoutes() {
 		<AnimatePresence mode='wait'>
 			<Routes location={location} key={location.pathname.split('/').at(1)}>
 				<Route path='/' element={<Intro />} />
-				<Route path='/app' element={<PageTemplate />}>
+				<Route path='/2023' element={<PageTemplate />}>
 					{pagesToRoutes.map((r) => (
 						<Route key={r.path} path={r.path} element={r.component} />
 					))}

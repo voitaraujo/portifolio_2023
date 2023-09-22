@@ -1,17 +1,36 @@
-import { motion, useAnimate } from 'framer-motion';
-import { useLayoutEffect, useRef } from 'react';
+import { Variant, Variants, motion, useAnimate } from 'framer-motion';
+import { CSSProperties, useLayoutEffect, useRef } from 'react';
 import { HiChevronDoubleDown as HiChevronDoubleDownIcon } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { blue } from 'tailwindcss/colors';
 
 import TextBackground_Img from '../assets/img/bg_title.png';
 
+const introGradient = {
+	full: { '--intro-gradient-opacity': '50%' },
+	invisible: { '--intro-gradient-opacity': '0%' },
+};
+
 export default function Intro() {
 	return (
-		<motion.div className='flex h-full flex-1 flex-col items-center justify-center overflow-hidden lg:justify-start'>
+		<motion.div
+			initial={'invisible'}
+			animate={'full'}
+			exit={'invisible'}
+			variants={introGradient as Variants}
+			transition={{
+				type: 'tween',
+				ease: 'easeInOut',
+				duration: 0.5,
+			}}
+			id='intro'
+			className={
+				'flex h-full flex-1 flex-col items-center justify-center overflow-hidden lg:justify-start'
+			}
+		>
 			<Title>WEB DEVELOPER</Title>
 			<Subtitle>Voitila Araújo</Subtitle>
-			<ActionButton navigateTo='/app/sobre' />
+			<ActionButton navigateTo='/2023/sobre' />
 		</motion.div>
 	);
 }
@@ -23,6 +42,8 @@ const Title = ({ children }: { children: string }) => {
 		let variations: { [K: string]: number } = {};
 		const clientWidth = document.body.clientWidth / 2;
 		const clientHeight = document.body.clientHeight / 2;
+		const maxBgXMovementPerc = 0.1;
+		const maxBgYMovementPerc = 0.1;
 
 		variations.xVariation = clientWidth - e.clientX;
 		variations.yVariation = clientHeight - e.clientY;
@@ -31,13 +52,14 @@ const Title = ({ children }: { children: string }) => {
 
 		ref.current!.animate(
 			{
-				backgroundPosition: `${variations.xVariationPerc * -100}% ${
-					variations.yVariationPerc * 100 * 0.2
-				}%`,
+				backgroundPosition: `${
+					variations.xVariationPerc * 100 * maxBgXMovementPerc
+				}% ${variations.yVariationPerc * 100 * maxBgYMovementPerc}%`,
 			},
 			{
 				duration: 1000,
 				fill: 'forwards',
+				easing: 'cubic-bezier(0.5, 1, 0.89, 1)',
 			}
 		);
 	}
@@ -50,6 +72,7 @@ const Title = ({ children }: { children: string }) => {
 			{
 				duration: 500,
 				fill: 'forwards',
+				easing: 'cubic-bezier(0.5, 1, 0.89, 1)',
 			}
 		);
 	}
@@ -72,12 +95,11 @@ const Title = ({ children }: { children: string }) => {
 			exit={{ opacity: 0, y: 300, transition: { duration: 0.5 } }}
 			style={{
 				backgroundImage: `url(${TextBackground_Img})`,
-				backgroundRepeat: 'no-repeat',
 				backgroundPosition: '0% 0%',
+				backgroundSize: '110%',
 			}}
 			transition={{
 				type: 'spring',
-				duration: 1,
 			}}
 			className='cursor-default bg-black bg-clip-text py-4 text-center text-[15vw] font-black leading-[1] tracking-wide !text-transparent text-black dark:bg-white dark:!text-transparent dark:text-white'
 		>
@@ -89,7 +111,7 @@ const Title = ({ children }: { children: string }) => {
 const Subtitle = ({ children }: { children: string }) => {
 	return (
 		<motion.h2
-			className='cursor-default text-[5vw] font-thin text-black dark:text-white md:text-5xl'
+			className='cursor-default text-[5vw] font-thin text-black after:mx-auto after:mt-4 after:block after:h-[1px] after:w-4/5 after:bg-shard dark:text-white md:text-5xl'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0, y: 300, transition: { duration: 0.5 } }}

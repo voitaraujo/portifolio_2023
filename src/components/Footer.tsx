@@ -3,7 +3,7 @@ import Wave_img from '../assets/img/wave.png';
 
 export default function Footer() {
 	return (
-		<motion.div
+		<motion.footer
 			exit={{ y: 150, opacity: 0 }}
 			animate={{
 				y: 0,
@@ -11,7 +11,7 @@ export default function Footer() {
 				transition: { type: 'keyframes', ease: 'easeInOut', duration: 0.5 },
 			}}
 			initial={{ y: 150, opacity: 0 }}
-			className='relative bottom-0 mix-blend-exclusion left-0 z-[500] h-[129px] w-full overflow-hidden'
+			className='relative bottom-0 left-0 z-[500] h-[129px] w-full overflow-hidden mix-blend-exclusion'
 		>
 			<span className='absolute bottom-4 left-4 z-[99]'>
 				Voitila Araújo © 2023.
@@ -29,6 +29,6 @@ export default function Footer() {
 					className={`absolute h-full w-full animate-[flow_20s_linear_infinite] bg-[1000px_100px]`}
 				/>
 			))}
-		</motion.div>
+		</motion.footer>
 	);
 }

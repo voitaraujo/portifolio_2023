@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { HiChevronDoubleRight as HiChevronDoubleRightIcon } from 'react-icons/hi';
 import MyBigHead from '../components/Bighead';
 import Something from './Something';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import ReactTyped from 'react-typed';
 
 export default function Me() {
 	return (
@@ -11,26 +13,53 @@ export default function Me() {
 			className='flex h-full w-full flex-1 flex-col p-4'
 		>
 			<HeroSection />
-			<Something />
+			{/* <Something /> */}
 		</motion.div>
 	);
 }
 
 const HeroSection = () => {
+	const [isRaining, setIsRaining] = useState(false);
+	const ref = useRef<HTMLButtonElement>(null);
+
+	// TODO: make it rain!
+
+	// useLayoutEffect(() => {
+	// 	const interval = setInterval(() => {
+	// 		if (isRaining) rain();
+	// 	}, 1000);
+
+	// 	return () => {
+	// 		clearInterval(interval);
+	// 	};
+	// }, [isRaining]);
+
+	// function rain() {
+	// 	const droplet = document.createElement('div');
+
+	// 	ref.current?.appendChild(droplet);
+
+	// 	setTimeout(() => {
+	// 		ref.current?.removeChild(droplet);
+	// 	}, 2000);
+	// }
+
 	return (
-		<div className='flex min-h-screen flex-1 flex-col-reverse px-4 sm:px-8 md:px-16 lg:flex-row'>
+		<div className='flex flex-1 flex-col-reverse px-4 sm:px-8 md:px-16 lg:flex-row'>
 			<div className='flex w-full flex-1 flex-col justify-center py-4'>
-				<motion.h1
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1, transition: { duration: 0.6 } }}
-					exit={{ opacity: 0 }}
+				<ReactTyped
+					strings={['Oi, eu sou o voit', 'Oi, eu sou o Voitila']}
+					typeSpeed={50}
+					backSpeed={40}
+					loop={false}
+					startDelay={400}
+					cursorChar=' |'
+					smartBackspace
 					className='text-6xl font-bold tracking-tighter text-black antialiased dark:text-white'
-				>
-					Oi, eu sou o Voitila
-				</motion.h1>
+				/>
 				<motion.p
 					initial={{ opacity: 0 }}
-					animate={{ opacity: 1, transition: { duration: 0.6 } }}
+					animate={{ opacity: 1, transition: { duration: 0.6, delay: 2.2 } }}
 					exit={{ opacity: 0 }}
 					className='mb-8 mt-4 w-full  max-w-[600px] text-2xl font-light leading-10 tracking-widest text-black antialiased dark:text-white'
 				>
@@ -40,23 +69,24 @@ const HeroSection = () => {
 						elegante
 					</span>{' '}
 					sem deixar de ser{' '}
-					<a className='block w-fit text-blue-600 underline underline-offset-8'>
+					<button
+						ref={ref}
+						onClick={() => setIsRaining((ps) => !ps)}
+						className='block w-fit text-blue-600 underline underline-offset-8'
+					>
 						funcional()
-					</a>
+					</button>
 				</motion.p>
 				<motion.div
 					initial={{ opacity: 0 }}
-					animate={{ opacity: 1, transition: { delay: 1 } }}
+					animate={{ opacity: 1, transition: { delay: 4 } }}
 					className='group relative ml-auto h-[50px] w-[180px]'
 				>
-					<motion.a
-						className='absolute -left-2 -top-2 z-[1] inline-flex h-full w-full items-center justify-center gap-2 rounded-sm bg-black text-xl text-white transition-[left_top] group-hover:left-0 group-hover:top-0 dark:bg-white dark:text-black'
-						href='#start'
-					>
+					<button className='absolute -left-2 -top-2 z-[1] inline-flex h-full w-full items-center justify-center gap-2 rounded-sm bg-black text-xl text-white transition-[left_top] group-hover:left-0 group-hover:top-0 dark:bg-white dark:text-black'>
 						ler mais
 						<HiChevronDoubleRightIcon />
-					</motion.a>
-					<motion.div className='absolute h-full w-full rounded-sm bg-blue-400 transition-all delay-100 dark:bg-rose-400' />
+					</button>
+					<div className='absolute h-full w-full rounded-sm bg-blue-400 transition-all delay-100 dark:bg-rose-400' />
 				</motion.div>
 			</div>
 			<motion.div
