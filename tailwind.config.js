@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('tailwindcss/plugin');
+const { blue } = require('tailwindcss/colors');
 
 const backfaceVisibility = plugin(function ({ addUtilities }) {
 	addUtilities({
@@ -22,6 +23,10 @@ export default {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
+			colors: {
+				'custom-black': '#1b1b1b',
+				'custom-white': '#faf1f1',
+			},
 			fontFamily: {
 				poppins: ['Poppins', 'cursive'],
 				Courgette: ['Courgette', 'cursive'],
@@ -30,15 +35,11 @@ export default {
 				slide: 'slide 30s linear infinite',
 			},
 			backgroundImage: {
-				shard: 'linear-gradient(transparent, #14b8a6, transparent)',
+				shard: `linear-gradient(to right, transparent, ${blue[400]}, transparent)`,
 				'circle-fade-custom-white':
 					'radial-gradient(circle,rgba(2,0,36,0) 0,#fff 100%)',
 				'circle-fade-custom-black':
 					'radial-gradient(circle,rgba(2,0,36,0) 0,#000 100%)',
-			},
-			backgroundColor: {
-				'custom-black': '#1b1b1b',
-				'custom-white': '#faf1f1',
 			},
 			keyframes: {
 				slide: {

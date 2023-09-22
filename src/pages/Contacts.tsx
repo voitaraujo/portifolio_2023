@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { motion, useAnimate } from 'framer-motion';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { flushSync } from 'react-dom';
 import {
 	FaArrowRight as FaArrowRightIcon,
@@ -21,6 +21,14 @@ interface IContactForm {
 	name: string;
 	email: string;
 	message: string;
+}
+
+type TMailState = 'standby' | 'sending' | 'sended';
+
+interface ContactBadgeProps {
+	href: string;
+	Icon: ReactNode;
+	label: string;
 }
 
 export default function Contacts() {
@@ -87,7 +95,7 @@ export default function Contacts() {
 					scale: 1,
 					transition: { type: 'tween', ease: 'circOut', duration: 0.6 },
 				}}
-				className='flex w-full max-w-[400px] flex-col space-y-6 overflow-hidden'
+				className='flex w-full max-w-[400px] flex-col space-y-6 '
 			>
 				<h2 className='text-6xl font-bold tracking-tight text-blue-600 sm:text-7xl'>
 					Vamos conversar
@@ -102,7 +110,7 @@ export default function Contacts() {
 					className='relative flex h-[450px] w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-lg bg-white px-8 pb-8 pt-12 dark:bg-black'
 					onSubmit={submitContact}
 				>
-					<div className='absolute z-[1] min-h-[225%] min-w-[200%] animate-[fluid-spin_4s_linear_forwards] rounded-[40%] bg-blue-600 sm:rounded-[35%]' />
+					<div className='absolute z-[1] min-h-[225%] min-w-[200%] animate-[fluid-spin_4s_linear_forwards] rounded-[45%] bg-blue-600 sm:rounded-[35%]' />
 					<Input
 						disabled={mailState !== 'standby'}
 						id='Name'
@@ -141,15 +149,14 @@ export default function Contacts() {
 							{mailState === 'sended' && 'Enviado!'}
 						</span>
 
-						{/* TODO: Estilizar este botão igual ao "como?!" de Sobre */}
 						<button
 							ref={scope}
 							disabled={mailState !== 'standby'}
 							type='submit'
 							className={`
 						relative flex items-center justify-center rounded-full shadow-lg
-						${mailState === 'sending' && ' h-14 w-14  bg-neutral-200'}
 						${mailState === 'standby' && 'h-14 bg-blue-600 px-10 text-white'}
+						${mailState === 'sending' && ' h-14 w-14  bg-neutral-200'}
 						${mailState === 'sended' && ' h-14 w-14 bg-green-600 text-white'}
 						`}
 							onClick={() => submitContact()}
@@ -200,30 +207,20 @@ export default function Contacts() {
 						Minhas redes
 					</span>
 					<div className='mt-4 flex w-full flex-wrap justify-center gap-2'>
-						<a
+						<ContactBadge
+							Icon={
+								<FaGithubIcon className='text-2xl text-black dark:text-white' />
+							}
+							label='/voitaraujo'
 							href='https://github.com/voitaraujo'
-							target='_blanc'
-							rel='noreferrer'
-							className='group flex flex-1 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 shadow-md dark:bg-black'
-						>
-							<FaGithubIcon className='text-2xl text-black dark:text-white' />
-							<span className='whitespace-nowrap text-neutral-400'>
-								/voitaraujo
-							</span>
-							<FaArrowRightIcon className=' w-0 text-black transition-all group-hover:w-[1.5rem] dark:text-white' />
-						</a>
-						<a
+						/>
+						<ContactBadge
+							Icon={
+								<FaLinkedinIcon className='text-2xl text-black dark:text-white' />
+							}
+							label='/voitila-araujo'
 							href='https://www.linkedin.com/in/voitila-araujo/'
-							target='_blanc'
-							rel='noreferrer'
-							className='group flex flex-1 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 shadow-md dark:bg-black'
-						>
-							<FaLinkedinIcon className='text-2xl text-black dark:text-white' />
-							<span className='whitespace-nowrap text-neutral-400'>
-								/voitila-araujo
-							</span>
-							<FaArrowRightIcon className=' w-0 text-black transition-all group-hover:w-[1.5rem] dark:text-white' />
-						</a>
+						/>
 					</div>
 				</div>
 			</motion.div>
@@ -231,4 +228,17 @@ export default function Contacts() {
 	);
 }
 
-type TMailState = 'standby' | 'sending' | 'sended';
+function ContactBadge({ href, Icon, label }: ContactBadgeProps) {
+	return (
+		<a
+			href={href}
+			target='_blanc'
+			rel='noreferrer'
+			className='group flex flex-1 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 shadow-md dark:bg-black'
+		>
+			{Icon}
+			<span className='whitespace-nowrap text-neutral-400'>{label}</span>
+			<FaArrowRightIcon className=' w-0 text-black transition-all group-focus-within:w-[1.5rem] group-hover:w-[1.5rem] dark:text-white' />
+		</a>
+	);
+}

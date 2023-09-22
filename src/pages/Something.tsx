@@ -126,7 +126,7 @@ const StackSection = () => {
 					tiltAngleYInitial={10}
 					tiltAngleXInitial={5}
 					glareMaxOpacity={0.1}
-					className='flex flex-col rounded-2xl bg-white px-8 py-8 shadow-md '
+					className='fix-safari-tilt flex flex-col rounded-2xl bg-white px-8 py-8 shadow-md '
 				>
 					<h2 className='mr-auto max-w-[400px] rounded-bl-3xl rounded-br-3xl rounded-tl-none rounded-tr-3xl bg-blue-300 px-6 py-2 text-lg italic text-zinc-800 sm:text-2xl'>
 						E qual é a receita?
@@ -153,7 +153,7 @@ const StackSection = () => {
 					tiltAngleYInitial={-10}
 					tiltAngleXInitial={5}
 					glareMaxOpacity={0.1}
-					className='flex flex-col rounded-2xl bg-white px-8 py-8 shadow-md '
+					className='fix-safari-tilt flex flex-col rounded-2xl bg-white px-8 py-8 shadow-md '
 				>
 					<h2 className='mr-auto max-w-[400px] rounded-bl-3xl rounded-br-3xl rounded-tl-none rounded-tr-3xl bg-blue-300 px-6 py-2 text-lg italic text-zinc-800 sm:text-2xl'>
 						Ok, agora sobre a interatividade...
@@ -196,7 +196,7 @@ const GoalsSection = ({ Goals }: GoalsSectionProps) => {
 					glareEnable
 					tiltAngleYInitial={0}
 					glareMaxOpacity={0.1}
-					className='flex h-[450px] w-[300px]  flex-col overflow-hidden rounded-2xl bg-white shadow-md'
+					className='fix-safari-tilt flex h-[450px] w-[300px]  flex-col overflow-hidden rounded-2xl bg-white shadow-md'
 				>
 					<div className='grid-background' />
 					<div className='flex flex-col items-center p-8'>

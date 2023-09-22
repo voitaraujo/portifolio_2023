@@ -6,7 +6,7 @@ export default function PageContainer({
 	children: React.ReactNode;
 }) {
 	return (
-		<div className='flex min-h-screen w-full flex-col items-center justify-start bg-custom-white font-poppins dark:bg-custom-black'>
+		<div className='flex min-h-screen w-full flex-col items-center justify-start overflow-x-clip bg-custom-white font-poppins dark:bg-custom-black'>
 			{children && children}
 		</div>
 	);
