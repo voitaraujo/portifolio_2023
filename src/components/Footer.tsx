@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Wave_img from '../assets/img/wave.png';
 
 export default function Footer() {
 	return (
@@ -20,7 +19,7 @@ export default function Footer() {
 				<div
 					key={idx}
 					style={{
-						background: `url(${Wave_img})`,
+						background: `url('/img/wave.png')`,
 						animationDirection: idx % 2 === 0 ? 'reverse' : 'normal',
 						animationDelay: `${idx % 2 === 0 ? '-' : ''}${idx * idx}s`,
 						opacity: 0.9 - idx * 0.2,

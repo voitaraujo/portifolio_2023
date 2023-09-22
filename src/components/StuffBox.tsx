@@ -1,8 +1,6 @@
 import { motion, useAnimate, useInView } from 'framer-motion';
 import { useLayoutEffect } from 'react';
 import { FaQuestion as FaQuestionIcon } from 'react-icons/fa';
-import Caixa_FULL from '../assets/img/caixa-full.png';
-import Caixa_MASK from '../assets/img/caixa-mask.png';
 import TechIcon, { TTecnologies } from './TechIcon';
 
 export default function StuffBox({
@@ -15,6 +13,7 @@ export default function StuffBox({
 	const [scope, animate] = useAnimate();
 	const isInView = useInView(scope, {
 		margin: '-25% 0px -25% 0px',
+		once: true,
 	});
 
 	useLayoutEffect(() => {
@@ -55,7 +54,7 @@ export default function StuffBox({
 		>
 			<motion.img
 				draggable={false}
-				src={Caixa_FULL}
+				src={'/img/caixa-full.png'}
 				alt=''
 				style={{
 					top: '50%',
@@ -66,7 +65,7 @@ export default function StuffBox({
 
 			<motion.img
 				draggable={false}
-				src={Caixa_MASK}
+				src={'/img/caixa-mask.png'}
 				alt=''
 				className='absolute right-1/2 top-1/2 z-[3] -translate-y-1/2 translate-x-1/2'
 			/>
@@ -80,6 +79,9 @@ export default function StuffBox({
 						`absolute top-1/2 z-[2] flex h-12 w-12 items-center justify-center rounded-full border border-neutral-400 bg-white shadow-md sm:h-20 sm:w-20 ` +
 						p.className
 					}
+					viewport={{
+						once: true,
+					}}
 				>
 					{fillWith && fillWith[idx] ? (
 						<TechIcon

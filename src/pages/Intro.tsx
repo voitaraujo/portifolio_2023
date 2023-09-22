@@ -4,8 +4,6 @@ import { HiChevronDoubleDown as HiChevronDoubleDownIcon } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { blue } from 'tailwindcss/colors';
 
-import TextBackground_Img from '../assets/img/bg_title.png';
-
 const introGradient = {
 	full: { '--intro-gradient-opacity': '50%' },
 	invisible: { '--intro-gradient-opacity': '0%' },
@@ -94,7 +92,7 @@ const Title = ({ children }: { children: string }) => {
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: 300, transition: { duration: 0.5 } }}
 			style={{
-				backgroundImage: `url(${TextBackground_Img})`,
+				backgroundImage: `url('/img/bg_title.png')`,
 				backgroundPosition: '0% 0%',
 				backgroundSize: '110%',
 			}}

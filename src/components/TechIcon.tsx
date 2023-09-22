@@ -1,29 +1,3 @@
-import Logo_ReactHookForm from '../assets/svg/ReactHookForm.svg';
-import Logo_AdonisJS from '../assets/svg/adonisjs.svg';
-import Logo_Express from '../assets/svg/express.svg';
-import Logo_Fauna from '../assets/svg/faunadb.svg';
-import Logo_Framer from '../assets/svg/framer.svg';
-import Logo_JS from '../assets/svg/javascript.svg';
-import Logo_MSSQL from '../assets/svg/mssql.svg';
-import Logo_MUI from '../assets/svg/mui.svg';
-import Logo_NextJS from '../assets/svg/nextjs.svg';
-import Logo_Nodejs from '../assets/svg/nodejs.svg';
-import Logo_PlanetScale from '../assets/svg/planetscale.svg';
-import Logo_Prisma from '../assets/svg/prisma.svg';
-import Logo_Puppeteer from '../assets/svg/puppeteer.svg';
-import Logo_ReactJS from '../assets/svg/reactjs.svg';
-import Logo_RN from '../assets/svg/reactnative.svg';
-import Logo_RealmDB from '../assets/svg/realm.svg';
-import Logo_Rust from '../assets/svg/rust.svg';
-import Logo_Sass from '../assets/svg/sass.svg';
-import Logo_ShadcnUI from '../assets/svg/shadcnui.svg';
-import Logo_Svelte from '../assets/svg/svelte.svg';
-import Logo_Tailwind from '../assets/svg/tailwind.svg';
-import Logo_Tauri from '../assets/svg/tauri.svg';
-import Logo_TS from '../assets/svg/typescript.svg';
-import Logo_ViteJS from '../assets/svg/vitejs.svg';
-import Logo_Zod from '../assets/svg/zod.svg';
-
 export default function TechIcon({
 	tech,
 	className,
@@ -61,54 +35,54 @@ type TOthers = 'Vite' | 'Typescript' | 'Javascript' | 'Tauri' | 'Puppeteer';
 function getIcon(tec: TTecnologies) {
 	switch (tec) {
 		case 'ReactJS':
-			return Logo_ReactJS;
+			return '/svg/reactjs.svg';
 		case 'FaunaDB':
-			return Logo_Fauna;
+			return '/svg/faunadb.svg';
 		case 'MSSQL':
-			return Logo_MSSQL;
+			return '/svg/mssql.svg';
 		case 'MUI':
-			return Logo_MUI;
+			return '/svg/mui.svg';
 		case 'NextJS':
-			return Logo_NextJS;
+			return '/svg/nextjs.svg';
 		case 'NodeJS':
-			return Logo_Nodejs;
+			return '/svg/nodejs.svg';
 		case 'React Native':
-			return Logo_RN;
+			return '/svg/reactnative.svg';
 		case 'SASS':
-			return Logo_Sass;
+			return '/svg/sass.svg';
 		case 'Svelte':
-			return Logo_Svelte;
+			return '/svg/svelte.svg';
 		case 'TailwindCSS':
-			return Logo_Tailwind;
+			return '/svg/tailwind.svg';
 		case 'Vite':
-			return Logo_ViteJS;
+			return '/svg/vitejs.svg';
 		case 'AdonisJS':
-			return Logo_AdonisJS;
+			return '/svg/adonisjs.svg';
 		case 'RealmDB':
-			return Logo_RealmDB;
+			return '/svg/realm.svg';
 		case 'Javascript':
-			return Logo_JS;
+			return '/svg/javascript.svg';
 		case 'Typescript':
-			return Logo_TS;
+			return '/svg/typescript.svg';
 		case 'Tauri':
-			return Logo_Tauri;
+			return '/svg/tauri.svg';
 		case 'Express':
-			return Logo_Express;
+			return '/svg/express.svg';
 		case 'Puppeteer':
-			return Logo_Puppeteer;
+			return '/svg/puppeteer.svg';
 		case 'Rust':
-			return Logo_Rust;
+			return '/svg/rust.svg';
 		case 'Framer Motion':
-			return Logo_Framer;
+			return '/svg/framer.svg';
 		case 'Planet Scale':
-			return Logo_PlanetScale;
+			return '/svg/planetscale.svg';
 		case 'Prisma':
-			return Logo_Prisma;
+			return '/svg/prisma.svg';
 		case 'React Hook Form':
-			return Logo_ReactHookForm;
+			return '/svg/ReactHookForm.svg';
 		case 'Shadcn/ui':
-			return Logo_ShadcnUI;
+			return '/svg/shadcnui.svg';
 		case 'Zod':
-			return Logo_Zod;
+			return '/svg/zod.svg';
 	}
 }
