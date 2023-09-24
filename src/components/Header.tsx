@@ -64,22 +64,22 @@ const BurgerButton = ({
 
 	const burgerClassNames = {
 		liDefault:
-			'overflow-hidden transition-all absolute h-[4px] w-full dark:bg-white bg-black backface-hidden ',
+			'overflow-hidden inline-flex transition-all absolute h-[4px] w-full dark:bg-white bg-black backface-hidden ',
 		liVariants: {
 			top: {
 				default: 'top-[6px] left-0 !duration-[200ms] ',
 				expanded:
-					'top-[2.5rem] whitespace-nowrap !duration-[600ms] !w-[150px] !h-8 bg-black dark:bg-white z-10 -left-32 rounded-t',
+					'top-[2.5rem] whitespace-nowrap !duration-[600ms] !w-[200px] !h-12 bg-black dark:bg-white z-10 -left-44 rounded-t',
 			},
 			middle: {
 				default: 'top-[14px] left-0 !duration-[400ms] ',
 				expanded:
-					'top-[4.5rem] whitespace-nowrap !duration-[400ms] !w-[150px] !h-8 bg-black dark:bg-white z-10 -left-32',
+					'top-[5.5rem] whitespace-nowrap !duration-[400ms] !w-[200px] !h-12 bg-black dark:bg-white z-10 -left-44',
 			},
 			bottom: {
 				default: 'top-[22px] left-0 !duration-[600ms] ',
 				expanded:
-					'top-[6.5rem] whitespace-nowrap !duration-[200ms] !w-[150px] !h-8 bg-black dark:bg-white z-10 -left-32 rounded-b',
+					'top-[8.5rem] whitespace-nowrap !duration-[200ms] !w-[200px] !h-12 bg-black dark:bg-white z-10 -left-44 rounded-b',
 			},
 		},
 		spanDefault:
@@ -87,15 +87,15 @@ const BurgerButton = ({
 		spanVariants: {
 			top: {
 				default: 'pl-8 opacity-0 delay-0 w-0 h-0',
-				expanded: 'pl-2 opacity-100 delay-[600ms] py-1 w-full h-full',
+				expanded: 'pl-4 my-auto opacity-100 delay-[600ms] py-1 w-full',
 			},
 			middle: {
 				default: 'pl-8 opacity-0 delay-0 w-0 h-0',
-				expanded: 'pl-2 opacity-100 delay-[400ms] py-1 w-full h-full',
+				expanded: 'pl-4 my-auto opacity-100 delay-[400ms] py-1 w-full',
 			},
 			bottom: {
 				default: 'pl-8 opacity-0 delay-0 w-0 h-0',
-				expanded: 'pl-2 opacity-100 delay-[200ms] py-1 w-full h-full',
+				expanded: 'pl-4 my-auto opacity-100 delay-[200ms] py-1 w-full',
 			},
 		},
 	};
@@ -139,9 +139,9 @@ const BurgerButton = ({
 				>
 					{routes[idx] === currentRoute.split('/').at(-1) && (
 						<motion.span
-							className={`h-4/5 w-1 bg-blue-600 ${
+							className={`h-2 w-2 rounded-full bg-blue-600 ${
 								expanded ? ' opacity-100' : 'opacity-0'
-							} absolute left-2 top-1/2 flex -translate-y-1/2 rounded`}
+							} absolute left-2 top-1/2 flex -translate-y-1/2 rounded transition-all`}
 						/>
 					)}
 

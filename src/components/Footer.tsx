@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { SiVercel as SiVercelIcon } from 'react-icons/si';
 
 export default function Footer() {
 	return (
@@ -14,6 +15,18 @@ export default function Footer() {
 		>
 			<span className='absolute bottom-4 left-4 z-[99]'>
 				Voitila Araújo © 2023.
+			</span>
+			<span className='absolute bottom-4 right-4 z-[99] inline-flex cursor-default flex-col items-center gap-px sm:flex-row sm:gap-2'>
+				deployed at
+				<a
+					href='https://vercel.com/'
+					className='inline-flex w-full cursor-pointer items-center justify-end  gap-1 underline-offset-2 hover:underline sm:w-fit sm:justify-start'
+					target='_blank'
+					rel='noreferrer'
+				>
+					<SiVercelIcon />
+					Vercel
+				</a>
 			</span>
 			{[...new Array(4)].map((_, idx) => (
 				<div

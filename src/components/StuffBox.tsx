@@ -50,7 +50,7 @@ export default function StuffBox({
 	return (
 		<div
 			ref={scope}
-			className='relative flex h-[250px] w-[250px] flex-shrink-0 sm:h-[400px] sm:w-[400px]'
+			className='relative flex h-[300px] w-[300px] flex-shrink-0 sm:h-[400px] sm:w-[400px]'
 		>
 			<motion.img
 				draggable={false}
@@ -76,7 +76,7 @@ export default function StuffBox({
 					whileInView={p.whileInView}
 					initial={{ rotate: '0deg' }}
 					className={
-						`absolute top-1/2 z-[2] flex h-12 w-12 items-center justify-center rounded-full border border-neutral-400 bg-white shadow-md sm:h-20 sm:w-20 ` +
+						`absolute top-1/2 z-[2] flex h-16 w-16 items-center justify-center rounded-full border border-neutral-400 bg-white shadow-md sm:h-20 sm:w-20 ` +
 						p.className
 					}
 					viewport={{
@@ -86,7 +86,7 @@ export default function StuffBox({
 					{fillWith && fillWith[idx] ? (
 						<TechIcon
 							tech={fillWith[idx]}
-							className='h-6 w-6 sm:h-12 sm:w-12'
+							className='h-10 w-10 sm:h-12 sm:w-12'
 						/>
 					) : (
 						<FaQuestionIcon className='rotate-45 text-zinc-400' />
@@ -98,9 +98,9 @@ export default function StuffBox({
 				<motion.div
 					key={t}
 					id={t.replace(' ', '_')}
-					className='absolute right-1/2 top-[75%] z-[2] flex h-12 w-12 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg sm:h-20 sm:w-20'
+					className='absolute right-1/2 top-[75%] z-[2] flex h-16 w-16 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg sm:h-20 sm:w-20'
 				>
-					<TechIcon tech={t} className='h-6 w-6 sm:h-12 sm:w-12' />
+					<TechIcon tech={t} className='h-10 w-10 sm:h-12 sm:w-12' />
 				</motion.div>
 			))}
 		</div>
