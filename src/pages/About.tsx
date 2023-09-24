@@ -9,7 +9,7 @@ import {
 } from 'react-icons/hi';
 import Tilt from 'react-parallax-tilt';
 import MyBigHead from '../components/Bighead';
-import { ReactNode, useId, useRef } from 'react';
+import { ReactNode, useId, useRef, useState } from 'react';
 import ReactTyped from 'react-typed';
 import Balancer from 'react-wrap-balancer';
 import StuffBox from '../components/StuffBox';
@@ -136,7 +136,7 @@ function IntroductionSection() {
 			/>
 			<div
 				id='about-panel'
-				className='ml-auto mr-16 flex h-full w-full max-w-[400px] flex-col items-center justify-evenly gap-4 sm:relative sm:h-[600px]'
+				className='mx-auto flex h-full w-[90%] max-w-[400px] flex-col items-center justify-evenly gap-4 p-4 sm:relative sm:ml-auto sm:mr-20 sm:h-[600px] sm:w-full'
 			>
 				<motion.p
 					ref={description}
@@ -191,7 +191,7 @@ function IntroductionSection() {
 function StackSection() {
 	return (
 		<>
-			<div className='mb-[100px] flex flex-1 flex-col justify-evenly gap-4 sm:mb-[200px] md:flex-row'>
+			<div className='mb-[100px] flex flex-1 flex-col items-center justify-evenly gap-4 px-4 sm:mb-[200px] md:flex-row'>
 				<StuffBox
 					Techs={['Framer Motion', 'React Native', 'TailwindCSS']}
 					fillWith={['NodeJS', 'Tauri', 'Vite', 'MUI', 'SASS', 'Typescript']}
@@ -203,7 +203,7 @@ function StackSection() {
 					tiltAngleYInitial={10}
 					tiltAngleXInitial={5}
 					glareMaxOpacity={0.1}
-					className='fix-safari-tilt flex flex-col rounded-2xl bg-white px-8 py-8 shadow-md '
+					className='fix-safari-tilt flex w-[90%] flex-col rounded-2xl bg-white px-8 py-8 shadow-md sm:w-fit '
 				>
 					<h2 className='mr-auto max-w-[400px] rounded-bl-3xl rounded-br-3xl rounded-tl-none rounded-tr-3xl bg-blue-300 px-6 py-2 text-lg italic text-zinc-800 sm:text-2xl'>
 						E qual é a receita?
@@ -335,6 +335,7 @@ function Greeting() {
 
 function Description() {
 	const rainTrigger = useRef<HTMLButtonElement>(null);
+	const [isRaining, setIsRaining] = useState(false);
 
 	return (
 		<motion.p
@@ -351,10 +352,10 @@ function Description() {
 			sem deixar de ser{' '}
 			<button
 				ref={rainTrigger}
-				onClick={() => {}}
+				onClick={() => setIsRaining((ps) => true)}
 				className='inline w-fit text-blue-600 underline underline-offset-8'
 			>
-				funcional()
+				funcional({isRaining && 'true'})
 			</button>
 		</motion.p>
 	);
@@ -365,7 +366,7 @@ function ReadMoreButton({ startAnchorId }: { startAnchorId?: string }) {
 		<motion.div
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { delay: 4 } }}
-			className='group relative ml-auto h-[50px] w-[180px]'
+			className='group relative ml-auto flex h-[50px] w-[180px] shrink-0'
 		>
 			<a
 				href={`/2023/sobre#${startAnchorId}`}

@@ -3,7 +3,7 @@ import { IProjectsData } from './hooks/useBentoSlotContext';
 export const ProjectsData: IProjectsData[] = [
 	{
 		projectName: 'Snapshots',
-		projectDescription: 'Aplicação pessoal para gestão dos meus freelances',
+		projectDescription: 'Aplicação pessoal para administrar meus freelances',
 		imgSrc: '/img/snapshots.png',
 		imgAlt: 'Snapshots project cover image',
 		deployURL: null,
@@ -25,7 +25,7 @@ export const ProjectsData: IProjectsData[] = [
 	{
 		projectName: 'Scrappy',
 		projectDescription:
-			'API para requisitar o web scrapping de uma URL fornecida, retorna diversos dados de um site',
+			'API para realizar o web scrapping de uma URL, retorna dados processador de um site',
 		imgSrc: '/img/scrappy_slot.png',
 		imgAlt: 'Scrappy project cover image',
 		deployURL: 'https://scrappingservice.vercel.app',
@@ -36,7 +36,7 @@ export const ProjectsData: IProjectsData[] = [
 	{
 		projectName: 'SLWEB',
 		projectDescription:
-			'Plataforma para gestão completa de franquias de máquinas de café automáticas.',
+			'Plataforma para gestão de franquias de máquinas de café automáticas',
 		imgSrc: '/img/slweb_slot.png',
 		imgAlt: 'SLWEB project cover image',
 		deployURL: 'https://slweb.slaplic.com.br',
@@ -58,7 +58,7 @@ export const ProjectsData: IProjectsData[] = [
 	{
 		projectName: 'KeepMyLink',
 		projectDescription:
-			'Uma plataforma para salvar, gerenciar e compartilhar links anônimamente.',
+			'Plataforma de armazenamento e compartilhamento de links anônimos',
 		imgSrc: '/img/kml_slot.png',
 		imgAlt: 'KeepMyLink project cover image',
 		deployURL: 'https://keep-my-link.vercel.app',
